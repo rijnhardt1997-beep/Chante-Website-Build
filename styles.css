@@ -264,13 +264,11 @@ summary:focus-visible,
   .reveal-ready, .reveal-ready.is-visible { opacity: 1; transform: none; transition: none; }
 }
 
-/* One practitioner profile; replace the portrait placeholder when a photo is supplied. */
+/* Practitioner portrait: retain the original photograph and crop in the browser. */
 .physio { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 90px; padding-bottom: 55px; }
 .physio-portrait { margin: 0; }
-.portrait-placeholder { position: relative; aspect-ratio: 4 / 5; background: var(--blush); border-radius: 48% 48% 2px 2px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.portrait-monogram { width: 48%; height: auto; opacity: .9; }
-.portrait-label { font-size: 9px; letter-spacing: 2px; margin-top: 28px; color: var(--ink); z-index: 1; }
-.portrait-curve { position: absolute; width: 115%; height: auto; bottom: -15px; left: -10%; opacity: .55; }
+.portrait-frame { aspect-ratio: 4 / 5; background: var(--linen); border-radius: 48% 48% 2px 2px; overflow: hidden; }
+.physio-photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
 .physio-portrait figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 20px; font-size: 10px; letter-spacing: 1px; }
 .physio-portrait figcaption span:last-child { color: var(--muted); letter-spacing: 0; }
 .physio-copy h2 { margin-bottom: 23px; }
@@ -287,6 +285,6 @@ summary:focus-visible,
 @media (max-width: 800px) {
   .physio { grid-template-columns: 1fr; gap: 35px; }
   .physio-portrait { max-width: 430px; width: 100%; margin: auto; }
-  .portrait-placeholder { aspect-ratio: 4 / 4.5; }
+  .portrait-frame { aspect-ratio: 4 / 5; }
   .physio-copy h3 { font-size: 29px; }
 }
