@@ -263,3 +263,30 @@ summary:focus-visible,
 @media (prefers-reduced-motion: reduce) {
   .reveal-ready, .reveal-ready.is-visible { opacity: 1; transform: none; transition: none; }
 }
+
+/* One practitioner profile; replace the portrait placeholder when a photo is supplied. */
+.physio { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 90px; padding-bottom: 55px; }
+.physio-portrait { margin: 0; }
+.portrait-placeholder { position: relative; aspect-ratio: 4 / 5; background: var(--blush); border-radius: 48% 48% 2px 2px; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.portrait-monogram { width: 48%; height: auto; opacity: .9; }
+.portrait-label { font-size: 9px; letter-spacing: 2px; margin-top: 28px; color: var(--ink); z-index: 1; }
+.portrait-curve { position: absolute; width: 115%; height: auto; bottom: -15px; left: -10%; opacity: .55; }
+.physio-portrait figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 20px; font-size: 10px; letter-spacing: 1px; }
+.physio-portrait figcaption span:last-child { color: var(--muted); letter-spacing: 0; }
+.physio-copy h2 { margin-bottom: 23px; }
+.physio-copy h3 { font-family: 'Newsreader', Georgia, serif; font-size: 32px; font-weight: 300; margin: 0 0 16px; }
+.physio-copy p { font-size: 14px; color: var(--muted); line-height: 1.85; }
+.physio-copy .physio-intro { color: var(--ink); font-size: 17px; line-height: 1.6; margin-bottom: 22px; }
+.physio-focus { display: flex; flex-wrap: wrap; gap: 8px; margin: 25px 0 15px; }
+.physio-focus span { border: 1px solid var(--line); background: var(--linen); padding: 9px 12px; border-radius: 2px; font-size: 10px; line-height: 1.5; }
+@media (min-width: 801px) and (max-width: 1050px) {
+  .header { flex-wrap: wrap; justify-content: center; }
+  .header nav { justify-content: center; }
+}
+@media (max-width: 1100px) { .physio { gap: 45px; } }
+@media (max-width: 800px) {
+  .physio { grid-template-columns: 1fr; gap: 35px; }
+  .physio-portrait { max-width: 430px; width: 100%; margin: auto; }
+  .portrait-placeholder { aspect-ratio: 4 / 4.5; }
+  .physio-copy h3 { font-size: 29px; }
+}

@@ -27,3 +27,7 @@ The supplied SVG artwork defines these colours: blush `#c4a69d`, linen `#ede4db`
 Header and footer use the linen women’s health wordmark. The hero uses the sand logo with dot. All three supplied curve designs appear in the hero, page divider and approach section. The library includes additional colour variants for future use. No photographs were included in the staged assets.
 
 Text appears with a subtle upward fade once when scrolled into view. Reduced-motion preferences disable the animation, and text remains visible when JavaScript is disabled.
+
+## Practitioner profile
+
+The Meet your Physio section shows one profile for Chanté Groenewald, a clearly labelled portrait placeholder, practice focus areas and a contact link. Replace the placeholder with an approved portrait and supply a verified biography/qualifications when ready. The introduction uses the confirmed practice positioning and does not invent credentials or experience.
