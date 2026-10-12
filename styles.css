@@ -309,4 +309,3 @@ summary:focus-visible,
 .contact-details a:hover, .faq-items p a:hover { color: #80624d; }
 .phone-options { display: flex; gap: 18px; margin-top: 12px; font-size: 12px; }
 @media (max-width: 800px) { .phone-options { justify-content: center; } }
-
