@@ -10,7 +10,7 @@ From `/workspace/Chante-Website-Build`:
 python3 -m http.server 3000 --bind 0.0.0.0
 ```
 
-The website uses plain HTML, CSS and JavaScript. No installation or build step is required. The site uses system fonts and works without external assets. The hero illustration is included inline.
+The website uses plain HTML, CSS and JavaScript. No installation or build step is required. The site uses system fonts and works without external assets. Brand artwork is served locally from `assets/brand/`; no external images or fonts are required.
 
 ## Content status
 
@@ -19,3 +19,9 @@ Confirmed by the user: SY is the brand; Chante Groenewald Physiotherapy is the f
 The address, phone number and email use the exact requested placeholders. Replace them before publication. Contact buttons open Instagram; no appointment request is sent through the website. No qualifications, registration details, testimonials, results or appointment availability are invented.
 
 Edit `index.html` for page content, `styles.css` for design and `app.js` for care details and interactions. The business growth planning documents are maintained separately in the cloud workspace. Professional and advertising review is pending before public launch.
+
+## Brand design
+
+The supplied SVG artwork defines these colours: blush `#c4a69d`, linen `#ede4db`, olive `#bab8a2`, sand `#b69678` and white `#ffffff`. Dark neutral `#3e4037` supports readable text and controls. Georgia serif headings reflect the supplied wordmark; no font files or separate typography guide were provided. Original SVGs are preserved without recolouring.
+
+Header and footer use the linen women’s health wordmark. The hero uses the sand logo with dot. All three supplied curve designs appear in the hero, page divider and approach section. The library includes additional colour variants for future use. No photographs were included in the staged assets.
