@@ -32,3 +32,33 @@ dialog.addEventListener('click', event => {
 });
 dialog.addEventListener('close', () => document.body.classList.remove('modal-open'));
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+// Reveal text once as it enters the viewport; content stays visible without JS.
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+if ('IntersectionObserver' in window && !motionPreference.matches) {
+  const textBlocks = document.querySelectorAll('main h1, main h2, main h3, main p, main .eyebrow, main .art-label-message');
+  const reveal = element => {
+    element.classList.add('is-visible');
+    observer.unobserve(element);
+  };
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) reveal(entry.target);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -24px 0px' });
+  textBlocks.forEach(element => {
+    element.classList.add('reveal-ready');
+    observer.observe(element);
+  });
+  // Keyboard users see all text in the control they are interacting with.
+  document.querySelector('main').addEventListener('focusin', event => {
+    const block = event.target.closest('button, details, section');
+    if (block) block.querySelectorAll('.reveal-ready').forEach(reveal);
+  });
+  motionPreference.addEventListener('change', event => {
+    if (event.matches) {
+      textBlocks.forEach(reveal);
+      observer.disconnect();
+    }
+  });
+}

@@ -10,7 +10,7 @@ From `/workspace/Chante-Website-Build`:
 python3 -m http.server 3000 --bind 0.0.0.0
 ```
 
-The website uses plain HTML, CSS and JavaScript. No installation or build step is required. The site uses system fonts and works without external assets. Brand artwork is served locally from `assets/brand/`; no external images or fonts are required.
+The website uses plain HTML, CSS and JavaScript. No installation or build step is required. Newsreader Light and DM Sans are self-hosted in `assets/fonts/` with their font licences. Brand artwork is served locally from `assets/brand/`; no external images or fonts are required.
 
 ## Content status
 
@@ -22,6 +22,8 @@ Edit `index.html` for page content, `styles.css` for design and `app.js` for car
 
 ## Brand design
 
-The supplied SVG artwork defines these colours: blush `#c4a69d`, linen `#ede4db`, olive `#bab8a2`, sand `#b69678` and white `#ffffff`. Dark neutral `#3e4037` supports readable text and controls. Georgia serif headings reflect the supplied wordmark; no font files or separate typography guide were provided. Original SVGs are preserved without recolouring.
+The supplied SVG artwork defines these colours: blush `#c4a69d`, linen `#ede4db`, olive `#bab8a2`, sand `#b69678` and white `#ffffff`. Dark neutral `#3e4037` supports readable text and controls. Newsreader Light (300), including italic, is used for headings; DM Sans is used for body text. Both are self-hosted from Fontsource distributions with their SIL Open Font Licences included. The reference overview informs white space, a sand wordmark on white, and a blush footer with white curve artwork. Original SVGs are preserved without recolouring.
 
 Header and footer use the linen women’s health wordmark. The hero uses the sand logo with dot. All three supplied curve designs appear in the hero, page divider and approach section. The library includes additional colour variants for future use. No photographs were included in the staged assets.
+
+Text appears with a subtle upward fade once when scrolled into view. Reduced-motion preferences disable the animation, and text remains visible when JavaScript is disabled.
