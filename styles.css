@@ -150,7 +150,7 @@ details p { color: var(--muted); font-size: 13px; line-height: 1.8; padding-righ
 .light { background: var(--ink); border-color: var(--ink); color: var(--white); }
 .light:hover { background: #56584b; }
 .handle { display: block; font-size: 11px; letter-spacing: 1px; margin-top: 19px; color: var(--ink); }
-.contact-symbol { position: absolute; width: clamp(150px, 18%, 210px); left: 32px; top: 175px; opacity: .16; pointer-events: none; z-index: -1; }
+.contact-symbol { position: absolute; width: 420px; left: -70px; top: 140px; opacity: .35; pointer-events: none; z-index: -1; }
 .contact-symbol img { width: 100%; height: auto; }
 .contact-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 850px; margin: 40px auto 0; border-top: 1px solid #b6967860; padding-top: 28px; text-align: left; }
 .contact-details span { font-size: 10px; letter-spacing: 2px; color: var(--ink); }
@@ -310,7 +310,3 @@ summary:focus-visible,
 .phone-options { display: flex; gap: 18px; margin-top: 12px; font-size: 12px; }
 @media (max-width: 800px) { .phone-options { justify-content: center; } }
 
-@media (max-width: 800px) {
-  .contact { padding-bottom: 115px; }
-  .contact-symbol { width: 90px; left: calc(50% - 45px); top: auto; bottom: 22px; }
-}
