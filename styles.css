@@ -317,3 +317,8 @@ summary:focus-visible,
   .full-width-band-care { margin-top: 24px; }
   .full-width-band-contact .contact { padding-left: 24px; padding-right: 24px; }
 }
+
+.contact-details a, .faq-items p a { text-decoration: underline; text-decoration-color: var(--sand); text-underline-offset: 4px; overflow-wrap: anywhere; }
+.contact-details a:hover, .faq-items p a:hover { color: #80624d; }
+.phone-options { display: flex; gap: 18px; margin-top: 12px; font-size: 12px; }
+@media (max-width: 800px) { .phone-options { justify-content: center; } }
