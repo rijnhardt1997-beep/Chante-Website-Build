@@ -288,3 +288,19 @@ summary:focus-visible,
   .portrait-frame { aspect-ratio: 1 / 1; }
   .physio-copy h3 { font-size: 29px; }
 }
+
+/* Quiet section boundaries: pale brand washes, fine rules and shared spacing. */
+:root { --section-rule: #b6967830; }
+.section-band { border-block: 1px solid var(--section-rule); }
+.section-band-linen { background: #f8f4f0; }
+.section-band-olive { background: #f7f7f2; }
+.values-strip { background: #fcfaf8; border-color: var(--section-rule); }
+.section-band-linen { border-top: 0; }
+.care { margin-top: 40px; background: #f4eee8; border: 1px solid var(--section-rule); }
+.physio { padding-top: 90px; padding-bottom: 90px; }
+.faq { border-top: 0; }
+.contact { border: 1px solid var(--section-rule); }
+@media (max-width: 800px) {
+  .care { margin-top: 24px; }
+  .physio { padding-top: 55px; padding-bottom: 55px; }
+}

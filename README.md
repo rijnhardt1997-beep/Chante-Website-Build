@@ -31,3 +31,5 @@ Text appears with a subtle upward fade once when scrolled into view. Reduced-mot
 ## Practitioner profile
 
 The Meet your Physio section shows one profile for Chanté Groenewald, the user-supplied portrait, practice focus areas and a contact link. The original JPEG is served from `assets/images/chante-groenewald.jpg`, with responsive cropping handled by CSS. Supply a verified biography/qualifications when ready. The introduction uses the confirmed practice positioning and does not invent credentials or experience.
+
+Section boundaries use pale linen and olive background washes, thin sand-tinted rules and consistent spacing. The original brand colours remain the accents; sections alternate gently without strong visual breaks.
