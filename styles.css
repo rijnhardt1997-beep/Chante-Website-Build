@@ -267,7 +267,7 @@ summary:focus-visible,
 /* Practitioner portrait: retain the original photograph and crop in the browser. */
 .physio { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 90px; padding-bottom: 55px; }
 .physio-portrait { margin: 0; }
-.portrait-frame { aspect-ratio: 4 / 5; background: var(--linen); border-radius: 48% 48% 2px 2px; overflow: hidden; }
+.portrait-frame { aspect-ratio: 1 / 1; background: var(--linen); border-radius: 0; overflow: hidden; }
 .physio-photo { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
 .physio-portrait figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 20px; font-size: 10px; letter-spacing: 1px; }
 .physio-portrait figcaption span:last-child { color: var(--muted); letter-spacing: 0; }
@@ -285,6 +285,6 @@ summary:focus-visible,
 @media (max-width: 800px) {
   .physio { grid-template-columns: 1fr; gap: 35px; }
   .physio-portrait { max-width: 430px; width: 100%; margin: auto; }
-  .portrait-frame { aspect-ratio: 4 / 5; }
+  .portrait-frame { aspect-ratio: 1 / 1; }
   .physio-copy h3 { font-size: 29px; }
 }
