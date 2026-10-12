@@ -305,19 +305,6 @@ summary:focus-visible,
   .physio { padding-top: 55px; padding-bottom: 55px; }
 }
 
-/* Full-width care and contact backgrounds with the shared content alignment. */
-.full-width-band-care { margin-top: 40px; background: #f4eee8; border-block: 1px solid var(--section-rule); }
-.full-width-band-contact { background: var(--linen); border-block: 1px solid var(--section-rule); }
-.full-width-band > .section { max-width: 1320px; margin: 0 auto; border: 0; border-radius: 0; background: transparent; }
-.full-width-band-contact .contact { padding-left: 64px; padding-right: 64px; }
-@media (max-width: 1100px) {
-  .full-width-band-contact .contact { padding-left: 32px; padding-right: 32px; }
-}
-@media (max-width: 800px) {
-  .full-width-band-care { margin-top: 24px; }
-  .full-width-band-contact .contact { padding-left: 24px; padding-right: 24px; }
-}
-
 .contact-details a, .faq-items p a { text-decoration: underline; text-decoration-color: var(--sand); text-underline-offset: 4px; overflow-wrap: anywhere; }
 .contact-details a:hover, .faq-items p a:hover { color: #80624d; }
 .phone-options { display: flex; gap: 18px; margin-top: 12px; font-size: 12px; }
