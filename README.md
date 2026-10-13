@@ -39,3 +39,7 @@ Section boundaries use pale linen and olive background washes, thin sand-tinted 
 The contact action opens an appointment-request dialog requiring first name, surname, preferred date, privacy acknowledgement and at least one email/phone contact. No free-text medical message is collected. Phones can choose email or WhatsApp; desktop/Mac browsers use email only. Phone detection uses browser mobile hints with a user-agent fallback, independently of responsive layout width; detection can be affected by desktop-mode/spoofed user agents.
 
 The visitor reviews and sends the draft in their chosen app. No server-side submission, API, Google Sheets storage or appointment confirmation exists. No form information is persisted in browser storage. The inline acknowledgement explains the specific email/WhatsApp handoff; it does not constitute a certification of POPIA compliance or replace the practice's full privacy policy. Pill action buttons remain in place.
+
+## Women’s health awareness game
+
+A five-question Myth or Fact game follows Your care. It uses the existing Newsreader/DM Sans typography, brand colours, pill buttons and alternating section backgrounds; footer styling is unchanged. Answers remain only in page memory, with no scoring, symptoms, tracking or storage. Visitors can replay or open the appointment request dialog. Review the educational wording with Chanté before publication. Reduced-motion preferences disable feedback animation; a static learning note is shown without JavaScript.

@@ -454,3 +454,48 @@ nav > a:not(.button), .handle, footer > a:not(.logo) {
   .care-icon { width: 36px; height: 36px; }
   .contact-icon { width: 20px; height: 20px; }
 }
+
+/* Awareness game shares the existing fonts, pill controls and quiet brand palette. */
+.contact { background: var(--linen); }
+.awareness { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 80px; }
+.awareness-intro > p { max-width: 430px; font-size: 15px; line-height: 1.8; color: var(--muted); }
+.awareness-intro .awareness-note { font-size: 12px; line-height: 1.75; margin-top: 24px; }
+.game-card { background: var(--white); border: 1px solid var(--section-rule); border-radius: 12px; padding: 40px; }
+.game-card h3 { font-family: 'Newsreader', Georgia, serif; font-weight: 300; font-size: 34px; line-height: 1.2; letter-spacing: -.6px; margin: 24px 0; }
+.game-card p { font-size: 14px; line-height: 1.8; color: var(--muted); }
+.game-mark img { width: 80px; height: auto; }
+.game-progress-label { display: flex; justify-content: space-between; gap: 12px; align-items: center; font-size: 10px; letter-spacing: 1px; }
+#game-progress { width: 100%; height: 5px; display: block; margin-top: 14px; appearance: none; border: 0; border-radius: 999px; overflow: hidden; background: var(--linen); }
+#game-progress::-webkit-progress-bar { background: var(--linen); }
+#game-progress::-webkit-progress-value { background: var(--sand); border-radius: 999px; }
+#game-progress::-moz-progress-bar { background: var(--sand); border-radius: 999px; }
+.game-choices { display: flex; gap: 12px; margin: 28px 0; }
+.game-choice { background: var(--white); color: var(--ink); border-color: var(--sand); min-width: 100px; }
+.game-choice:hover { background: var(--linen); }
+.game-choice:disabled { cursor: default; transform: none; background: var(--white); color: var(--muted); border-color: var(--line); }
+.game-choice[aria-pressed="true"] { background: var(--linen); color: var(--ink); border-color: var(--sand); }
+.game-feedback { background: #f8f4f0; border-left: 2px solid var(--sand); padding: 16px 20px; margin: 22px 0; border-radius: 0 8px 8px 0; }
+#game-feedback-label { font-size: 12px; font-weight: 600; }
+.game-feedback p { margin: 9px 0 0; }
+.game-finish-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+.game-replay { background: transparent; border-color: var(--sand); color: var(--ink); }
+.game-replay:hover { background: var(--linen); }
+#myth-game [hidden] { display: none !important; }
+#game-question:focus, #game-feedback:focus, #game-complete-heading:focus { outline: none; }
+#game-feedback { animation: game-appear 240ms ease-out; }
+@keyframes game-appear { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 800px) { .awareness { grid-template-columns: 1fr; gap: 24px; } .game-card { padding: 28px; } }
+@media (max-width: 600px) { .awareness-intro .awareness-note { margin-top: 16px; } .game-card { padding: 24px; } .game-card h3 { font-size: 29px; } .game-choices .button { flex: 1; min-width: 0; } .game-finish-actions .button { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { #game-feedback { animation: none; } }
+
+/* Open contact section; the monogram drifts softly with the page. */
+.contact-band { background: var(--linen); overflow: clip; }
+.contact-band .contact { max-width: 1320px; margin: 0 auto; border: 0; border-radius: 0; background: transparent; overflow: visible; }
+.contact-symbol { width: 480px; left: -110px; transform: translateY(var(--sy-drift, 0px)); }
+.contact-symbol img { transform-origin: center; }
+.contact.sy-in-view .contact-symbol img { animation: sy-arrive 2200ms cubic-bezier(.2,.65,.3,1) both; }
+@keyframes sy-arrive { from { opacity: 0; transform: translateY(20px) rotate(-3deg) scale(.95); } to { opacity: 1; transform: translateY(0) rotate(0) scale(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .contact-symbol { transform: none; }
+  .contact.sy-in-view .contact-symbol img { animation: none; }
+}
