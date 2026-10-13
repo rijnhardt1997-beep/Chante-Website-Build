@@ -24,7 +24,7 @@ Edit `index.html` for page content, `styles.css` for design and `app.js` for car
 
 The supplied SVG artwork defines these colours: blush `#c4a69d`, linen `#ede4db`, olive `#bab8a2`, sand `#b69678` and white `#ffffff`. Dark neutral `#3e4037` supports readable text and controls. Newsreader Light (300), including italic, is used for headings; DM Sans is used for body text. Both are self-hosted from Fontsource distributions with their SIL Open Font Licences included. The reference overview informs white space, a sand wordmark on white, and a blush footer with white curve artwork. Original SVGs are preserved without recolouring.
 
-Header and footer use the linen women’s health wordmark. The hero uses the sand logo with dot. All three supplied curve designs appear in the hero, page divider and approach section. The library includes additional colour variants for future use. No photographs were included in the staged assets.
+Header and footer use the linen women’s health wordmark. The hero uses the sand logo with dot. Supplied curve designs appear in the hero and footer. The library includes additional colour variants for future use. No photographs were included in the staged assets.
 
 Text appears with a subtle upward fade once when scrolled into view. Reduced-motion preferences disable the animation, and text remains visible when JavaScript is disabled.
 
@@ -33,3 +33,7 @@ Text appears with a subtle upward fade once when scrolled into view. Reduced-mot
 The Meet your Physio section shows one profile for Chanté Groenewald, the user-supplied portrait, practice focus areas and a contact link. The original JPEG is served from `assets/images/chante-groenewald.jpg`, with responsive cropping handled by CSS. Supply a verified biography/qualifications when ready. The introduction uses the confirmed practice positioning and does not invent credentials or experience.
 
 Section boundaries use pale linen and olive background washes, thin sand-tinted rules and consistent spacing. The original brand colours remain the accents; sections alternate gently without strong visual breaks.
+
+## Local enquiry popup
+
+The contact action opens an enquiry dialog requiring first name, surname, message, and at least one email/phone contact. General questions and appointment enquiries can be prepared for email or WhatsApp. The user reviews and sends the draft in their chosen app; no server-side submission, Google Sheets integration or appointment confirmation exists. No form information is persisted in browser storage. The full booking-system proposal remains deferred. All action buttons use pill styling; care panels contain separate pill actions.

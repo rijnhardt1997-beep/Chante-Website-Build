@@ -24,7 +24,7 @@ document.querySelectorAll('[data-care]').forEach(button => button.addEventListen
   dialog.showModal();
   document.body.classList.add('modal-open');
 }));
-document.querySelector('.close-dialog').addEventListener('click', () => dialog.close());
+dialog.querySelector('.close-dialog').addEventListener('click', () => dialog.close());
 document.querySelector('#dialog-contact').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', event => {
   const rect = dialog.getBoundingClientRect();
@@ -62,3 +62,66 @@ if ('IntersectionObserver' in window && !motionPreference.matches) {
     }
   });
 }
+
+const enquiryDialog = document.querySelector('#enquiry-dialog');
+const enquiryForm = document.querySelector('#enquiry-form');
+const emailField = document.querySelector('#enquiry-email');
+const phoneField = document.querySelector('#enquiry-phone');
+const contactError = document.querySelector('#contact-error');
+const enquiryStatus = document.querySelector('#enquiry-status');
+document.querySelector('#open-enquiry').addEventListener('click', () => {
+  enquiryStatus.textContent = '';
+  enquiryDialog.showModal();
+  document.body.classList.add('modal-open');
+});
+enquiryDialog.querySelector('.close-dialog').addEventListener('click', () => enquiryDialog.close());
+enquiryDialog.addEventListener('close', () => document.body.classList.remove('modal-open'));
+enquiryDialog.addEventListener('click', event => {
+  const rect = enquiryDialog.getBoundingClientRect();
+  if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) enquiryDialog.close();
+});
+const clearContactError = () => {
+  emailField.setCustomValidity('');
+  phoneField.setCustomValidity('');
+  emailField.removeAttribute('aria-invalid');
+  phoneField.removeAttribute('aria-invalid');
+  contactError.hidden = true;
+};
+[emailField, phoneField].forEach(field => field.addEventListener('input', clearContactError));
+enquiryForm.querySelectorAll('[required]').forEach(field => field.addEventListener('input', () => field.setCustomValidity('')));
+enquiryForm.querySelectorAll('[name="delivery"]').forEach(field => field.addEventListener('change', () => {
+  document.querySelector('#prepare-enquiry').firstChild.textContent = field.value === 'email' ? 'Open email draft ' : 'Open WhatsApp draft ';
+  enquiryStatus.textContent = '';
+}));
+enquiryForm.addEventListener('submit', event => {
+  event.preventDefault();
+  clearContactError();
+  enquiryStatus.textContent = '';
+  enquiryForm.querySelectorAll('[required]').forEach(field => {
+    field.setCustomValidity(field.value.trim() ? '' : 'Please complete this field.');
+  });
+  const email = emailField.value.trim();
+  const phone = phoneField.value.trim();
+  if (!email && !phone) {
+    const message = 'Please provide an email address or phone number.';
+    emailField.setCustomValidity(message);
+    emailField.setAttribute('aria-invalid', 'true');
+    phoneField.setAttribute('aria-invalid', 'true');
+    contactError.textContent = message;
+    contactError.hidden = false;
+  } else if (phone && (!/^\+?[\d\s().-]+$/.test(phone) || phone.replace(/\D/g, '').length < 7 || phone.replace(/\D/g, '').length > 15)) {
+    phoneField.setCustomValidity('Please enter a valid phone number, including the area or country code.');
+    phoneField.setAttribute('aria-invalid', 'true');
+  }
+  if (!enquiryForm.reportValidity()) return;
+  const data = new FormData(enquiryForm);
+  const topic = data.get('topic');
+  const text = `${topic}\n\nName: ${data.get('firstName').trim()} ${data.get('surname').trim()}\nEmail: ${email || 'Not provided'}\nPhone: ${phone || 'Not provided'}\n\n${data.get('message').trim()}`;
+  if (data.get('delivery') === 'whatsapp') {
+    window.open(`https://wa.me/27661680935?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+    enquiryStatus.textContent = 'Continue in WhatsApp to review and send your message. If it did not open, check your browser’s popup settings.';
+  } else {
+    window.location.href = `mailto:admin@cgphysio.co.za?subject=${encodeURIComponent(topic)}&body=${encodeURIComponent(text)}`;
+    enquiryStatus.textContent = 'Continue in your email app to review and send. If no email app opens, select WhatsApp or email admin@cgphysio.co.za directly.';
+  }
+});
