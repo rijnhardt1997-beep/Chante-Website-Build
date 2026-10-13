@@ -88,6 +88,18 @@ const clearContactError = () => {
   contactError.hidden = true;
 };
 [emailField, phoneField].forEach(field => field.addEventListener('input', clearContactError));
+const appointmentDate = document.querySelector('#appointment-date');
+const localToday = () => {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+};
+appointmentDate.min = localToday();
+// Detect a phone browser, not just a narrow desktop window. Fall back for Safari.
+const isPhone = navigator.userAgentData?.mobile ?? /iPhone|iPod|Android.*Mobile|Windows Phone/i.test(navigator.userAgent);
+const deliveryOptions = enquiryForm.querySelector('.delivery-options');
+deliveryOptions.hidden = !isPhone;
+enquiryForm.querySelector('[value="whatsapp"]').disabled = !isPhone;
+document.querySelector('#delivery-explanation').textContent = isPhone ? 'This opens a draft in your email app or WhatsApp.' : 'This opens a draft in your email app.';
 enquiryForm.querySelectorAll('[required]').forEach(field => field.addEventListener('input', () => field.setCustomValidity('')));
 enquiryForm.querySelectorAll('[name="delivery"]').forEach(field => field.addEventListener('change', () => {
   document.querySelector('#prepare-enquiry').firstChild.textContent = field.value === 'email' ? 'Open email draft ' : 'Open WhatsApp draft ';
@@ -98,7 +110,7 @@ enquiryForm.addEventListener('submit', event => {
   clearContactError();
   enquiryStatus.textContent = '';
   enquiryForm.querySelectorAll('[required]').forEach(field => {
-    field.setCustomValidity(field.value.trim() ? '' : 'Please complete this field.');
+    field.setCustomValidity(field.type === 'checkbox' ? (field.checked ? '' : 'Please acknowledge how your details are used.') : (field.value.trim() ? '' : 'Please complete this field.'));
   });
   const email = emailField.value.trim();
   const phone = phoneField.value.trim();
@@ -113,15 +125,16 @@ enquiryForm.addEventListener('submit', event => {
     phoneField.setCustomValidity('Please enter a valid phone number, including the area or country code.');
     phoneField.setAttribute('aria-invalid', 'true');
   }
+  appointmentDate.min = localToday();
   if (!enquiryForm.reportValidity()) return;
   const data = new FormData(enquiryForm);
-  const topic = data.get('topic');
-  const text = `${topic}\n\nName: ${data.get('firstName').trim()} ${data.get('surname').trim()}\nEmail: ${email || 'Not provided'}\nPhone: ${phone || 'Not provided'}\n\n${data.get('message').trim()}`;
-  if (data.get('delivery') === 'whatsapp') {
+  const topic = 'Appointment request';
+  const text = `Appointment request\n\nName: ${data.get('firstName').trim()} ${data.get('surname').trim()}\nEmail: ${email || 'Not provided'}\nPhone: ${phone || 'Not provided'}\nPreferred date: ${data.get('appointmentDate')}\nPrivacy acknowledgement: accepted\n\nPlease contact me to confirm availability.`;
+  if (isPhone && data.get('delivery') === 'whatsapp') {
     window.open(`https://wa.me/27661680935?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
     enquiryStatus.textContent = 'Continue in WhatsApp to review and send your message. If it did not open, check your browser’s popup settings.';
   } else {
     window.location.href = `mailto:admin@cgphysio.co.za?subject=${encodeURIComponent(topic)}&body=${encodeURIComponent(text)}`;
-    enquiryStatus.textContent = 'Continue in your email app to review and send. If no email app opens, select WhatsApp or email admin@cgphysio.co.za directly.';
+    enquiryStatus.textContent = isPhone ? 'Continue in your email app to review and send. If no email app opens, select WhatsApp or email admin@cgphysio.co.za directly.' : 'Continue in your email app to review and send. If no email app opens, email admin@cgphysio.co.za directly.';
   }
 });

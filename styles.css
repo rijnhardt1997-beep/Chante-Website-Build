@@ -279,7 +279,7 @@ summary:focus-visible,
 :root { --section-rule: #b6967830; }
 .section-band { border-block: 1px solid var(--section-rule); }
 .section-band-linen { background: #f8f4f0; }
-.section-band-olive { background: #f7f7f2; }
+.section-band-white { background: var(--white); }
 .care { margin-top: 40px; background: #f4eee8; border: 1px solid var(--section-rule); }
 .physio { padding-top: 90px; padding-bottom: 90px; }
 .faq { border-top: 0; }
@@ -318,7 +318,7 @@ summary:focus-visible,
 #enquiry-form label { display: block; font-size: 12px; margin-bottom: 18px; line-height: 1.5; }
 #enquiry-form label > span { color: var(--muted); font-size: 10px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-#enquiry-form input:not([type="radio"]), #enquiry-form textarea, #enquiry-form select { display: block; width: 100%; min-width: 0; margin-top: 7px; border: 1px solid #b8ac9f; border-radius: 8px; background: var(--white); padding: 12px; font: inherit; font-size: 14px; color: var(--ink); }
+#enquiry-form input:not([type="radio"]):not([type="checkbox"]), #enquiry-form textarea, #enquiry-form select { display: block; width: 100%; min-width: 0; margin-top: 7px; border: 1px solid #b8ac9f; border-radius: 8px; background: var(--white); padding: 12px; font: inherit; font-size: 14px; color: var(--ink); }
 #enquiry-form textarea { resize: vertical; }
 #enquiry-form input:focus-visible, #enquiry-form textarea:focus-visible, #enquiry-form select:focus-visible { outline: 2px solid var(--sand); outline-offset: 2px; }
 #enquiry-form [aria-invalid="true"] { border-color: #9b433b !important; }
@@ -331,3 +331,108 @@ summary:focus-visible,
 #enquiry-form .handoff-note { font-size: 11px; line-height: 1.7; }
 #enquiry-form .enquiry-status { font-size: 12px; margin-bottom: 0; }
 @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; gap: 0; } }
+
+/* Alternate white and the existing approach tint through the main sections. */
+.contact { background: var(--white); }
+
+/* Phone layout: fewer decorative layers, comfortable type and generous tap areas.
+   Viewport queries adapt to phones, orientation changes and narrow browser windows. */
+@media (max-width: 600px) {
+  .header { padding: 18px 20px; gap: 16px; }
+  .header .logo img { width: min(240px, 68vw); }
+  .menu-toggle { width: 44px; height: 44px; padding: 0; flex-shrink: 0; }
+  nav { top: calc(100% - 1px); left: 12px; right: 12px; padding: 16px; }
+  nav.open { gap: 4px; }
+  nav > a { min-height: 44px; display: flex; align-items: center; padding: 10px 12px; font-size: 15px; }
+  nav .button { margin-top: 8px; }
+  .section { padding: 44px 20px; }
+  .hero { padding-top: 32px; gap: 26px; }
+  .eyebrow { font-size: 9px; letter-spacing: 1.4px; }
+  h1 { font-size: clamp(43px, 12vw, 58px); margin: 20px 0; line-height: 1.06; }
+  h2 { font-size: 36px; line-height: 1.12; margin: 18px 0; }
+  .hero-copy > p, .approach-copy p, .physio-copy p, .care-card p,
+  .steps p, .faq > div > p, details p { font-size: 15px; line-height: 1.75; }
+  .hero-copy > p { margin: 20px 0 24px; }
+  .hero-copy > .button { width: 100%; }
+  .hero-copy > .text-link { display: flex; width: 100%; justify-content: center; margin: 8px 0 0; min-height: 44px; }
+  .hero-note, .art-label, .vertical-caption { display: none; }
+  .hero-art { max-width: 270px; padding: 0; }
+  .button { min-height: 48px; font-size: 14px; padding: 13px 22px; }
+  .text-link { min-height: 44px; align-items: center; font-size: 14px; }
+  .approach { gap: 22px; }
+  .approach-copy .large { font-size: 18px; }
+  .care-band .care { padding: 44px 20px; }
+  .section-heading { margin-bottom: 24px; }
+  .section-heading p { font-size: 14px; margin-top: 18px; }
+  .cards { gap: 16px; }
+  .care-card { padding: 24px; }
+  .card-number, .card-icon { display: none; }
+  .care-card h3 { margin: 0 0 14px; font-size: 27px; line-height: 1.15; }
+  .care-card p { margin: 0; }
+  .card-bottom { margin-top: 20px; padding-top: 16px; }
+  .care-action { width: 100%; }
+  .physio { padding: 44px 20px; gap: 28px; }
+  .physio-copy h3 { font-size: 27px; }
+  .physio-copy .physio-intro { font-size: 17px; }
+  .physio-focus { gap: 7px; }
+  .physio-focus span { font-size: 11px; padding: 7px 10px; }
+  .physio-portrait { max-width: 320px; }
+  .steps { margin-top: 28px; gap: 22px; }
+  .steps article { padding-top: 18px; }
+  .steps h3 { margin: 12px 0; }
+  .steps p { margin-bottom: 0; }
+  .faq { gap: 18px; }
+  details { padding: 18px 0; }
+  summary { min-height: 44px; font-size: 15px; line-height: 1.5; }
+  details p { padding-right: 0; }
+  .contact { margin-inline: 12px; padding: 38px 22px; }
+  .contact-symbol { display: none; }
+  .contact-brand { width: 100%; max-width: 300px; margin-bottom: 28px; }
+  .contact h2 { font-size: 40px; margin: 20px 0 26px; }
+  .contact > .button { width: 100%; }
+  .contact .handle { min-height: 44px; display: flex; align-items: center; justify-content: center; margin-top: 10px; font-size: 12px; }
+  .contact-details { margin-top: 24px; padding-top: 22px; gap: 22px; text-align: left; }
+  .contact-details p { font-size: 14px; line-height: 1.7; }
+  .contact-details a { display: inline-block; padding-block: 6px; }
+  .phone-options { justify-content: flex-start; font-size: 14px; gap: 20px; }
+  .phone-options a { min-height: 44px; display: flex; align-items: center; }
+  dialog, #enquiry-dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); padding: 38px 22px 24px; }
+  .close-dialog { width: 44px; height: 44px; right: 8px; top: 6px; }
+  #enquiry-dialog h2 { font-size: 34px; }
+  #enquiry-form .form-row { grid-template-columns: 1fr; gap: 0; }
+  #enquiry-form input:not([type="radio"]):not([type="checkbox"]), #enquiry-form textarea,
+  #enquiry-form select { font-size: 16px; min-height: 48px; }
+  #enquiry-form label { font-size: 14px; }
+  #enquiry-form .delivery-options label { min-height: 44px; }
+  #prepare-enquiry { width: 100%; }
+}
+
+.delivery-options[hidden] { display: none; }
+#enquiry-form .privacy-acknowledgement { display: flex; align-items: flex-start; gap: 12px; margin: 18px 0; }
+.privacy-acknowledgement input { width: 20px; height: 20px; flex-shrink: 0; accent-color: var(--ink); margin: 2px 0 0; }
+#enquiry-form .privacy-acknowledgement span { font-size: 12px; line-height: 1.7; color: var(--ink); }
+.privacy-notice { padding: 12px 0; }
+.privacy-notice summary { font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+
+/* Clear, quiet link styling replaces decorative arrows. */
+.button { justify-content: center; gap: 0; }
+.text-link, .hero-copy > .text-link {
+  border-bottom: 0;
+  text-decoration: underline;
+  text-decoration-color: var(--sand);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+nav > a:not(.button), .handle, footer > a:not(.logo) {
+  text-decoration: underline;
+  text-decoration-color: var(--sand);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+.text-link:hover, nav > a:not(.button):hover, .handle:hover,
+.contact-details a:hover, .faq-items p a:hover, footer > a:not(.logo):hover {
+  color: #80624d;
+  text-decoration-color: currentColor;
+}
+.button:active { transform: translateY(0); }
