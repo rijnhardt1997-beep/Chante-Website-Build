@@ -436,3 +436,21 @@ nav > a:not(.button), .handle, footer > a:not(.logo) {
   text-decoration-color: currentColor;
 }
 .button:active { transform: translateY(0); }
+
+/* Soft, consistent line icons with visible labels and generous touch targets. */
+.contact-icon { width: 19px; height: 19px; flex-shrink: 0; vertical-align: middle; }
+.icon-link, .contact-details a.icon-link, .faq-items p a.icon-link { display: inline-flex; align-items: center; gap: 8px; }
+.handle { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.icon-link > span { min-width: 0; overflow-wrap: anywhere; }
+.contact-details .icon-link, .phone-options .icon-link { min-height: 44px; }
+.icon-link:hover .contact-icon, .handle:hover .contact-icon { color: #80624d; }
+.care-card { display: flex; flex-direction: column; }
+.card-icon { display: block; margin: 26px 0 24px; line-height: 1; }
+.care-icon { display: block; width: 44px; height: 44px; }
+.care-card p { flex: 1; }
+.care-card .card-bottom { margin-top: 24px; }
+@media (max-width: 600px) {
+  .card-icon { display: block; margin: 0 0 18px; }
+  .care-icon { width: 36px; height: 36px; }
+  .contact-icon { width: 20px; height: 20px; }
+}
